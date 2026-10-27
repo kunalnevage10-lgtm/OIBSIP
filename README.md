@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </p>
 
-This repository contains the data science and machine learning projects developed by **Kunal Nevage** during the **Oasis Infobyte Data Science Internship Program (OIBSIP)**. The repository covers classical supervised machine learning classification and macroeconomic exploratory data analysis (EDA).
+This repository contains the data science and machine learning projects developed by **Kunal Nevage** during the **Oasis Infobyte Data Science Internship Program (OIBSIP)**. The repository covers classical supervised machine learning classification, macroeconomic exploratory data analysis (EDA), and regression-based automotive price prediction.
 
 ---
 
@@ -19,9 +19,11 @@ flowchart TD
     OIBSIP["Oasis Infobyte Data Science Internship"]
     OIBSIP --> Task1["🌸 Task 1: Iris Flower Classification"]
     OIBSIP --> Task2["📉 Task 2: Unemployment Analysis in India"]
+    OIBSIP --> Task3["🚗 Task 3: Car Price Prediction with ML"]
 
     Task1 --> ML["Multiclass Classification (KNN, Decision Tree, Logistic Regression)"]
     Task2 --> EDA["Time-Series & Regional COVID-19 Impact Analysis (Pandas, Plotly, Seaborn)"]
+    Task3 --> REG["Advanced Regression & Feature Engineering (Gradient Boosting, Random Forest)"]
 ```
 
 ---
@@ -53,6 +55,24 @@ flowchart TD
 
 ---
 
+## 🚗 Task 3: Car Price Prediction with Machine Learning
+
+- **Folder**: [`Task3_Car_Price_Prediction/`](Task3_Car_Price_Prediction/)
+- **Notebook**: [`Car_Price_Prediction_Kunal.ipynb`](Task3_Car_Price_Prediction/Car_Price_Prediction_Kunal.ipynb)
+- **Script**: [`car_price_prediction.py`](Task3_Car_Price_Prediction/car_price_prediction.py)
+- **Dataset**: `car_details.csv` (CarDekho Vehicle Dataset)
+- **Objective**: Build a regression model that accurately predicts the resale selling price of used cars based on multi-dimensional vehicle attributes (brand, vehicle age, mileage, fuel type, transmission mechanism, seller type, and ownership tier).
+- **Methodology**:
+  - Comprehensive data cleaning (audited null values, purged 763 duplicate records, standardized categorical casing and whitespaces).
+  - Domain feature engineering (`car_age` from reference year 2020, manufacturer `brand` extraction from car title, and `km_per_year` annual usage intensity).
+  - Exploratory Data Analysis: Target price distribution (raw vs log-transformed), fuel type box plots, age depreciation scatter plots, and feature correlation heatmap.
+  - One-Hot Encoding with rare-category consolidation and 80/20 train/test split.
+  - Multi-model evaluation comparing Linear Regression, Ridge Regression, Random Forest Regressor, and Gradient Boosting Regressor across MAE, RMSE, and $R^2$.
+  - Feature importance analysis identifying transmission type, vehicle age, and mileage intensity as primary price drivers.
+  - Serialized model artifact (`best_car_price_model.joblib`) with production inference prototype.
+
+---
+
 ## 🛠️ Tech Stack Used
 
 | Domain | Libraries & Tools |
@@ -60,7 +80,7 @@ flowchart TD
 | **Language & Environment** | Python 3.10+, Jupyter Notebook |
 | **Data Manipulation** | `pandas`, `numpy` |
 | **Statistical Visualization** | `matplotlib`, `seaborn`, `plotly` |
-| **Machine Learning** | `scikit-learn` |
+| **Machine Learning** | `scikit-learn`, `joblib` |
 
 ---
 
@@ -85,7 +105,7 @@ source venv/bin/activate
 
 ### 3. Install Dependencies
 ```bash
-pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyterlab
+pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyterlab joblib
 ```
 
 ### 4. Launch Jupyter Notebook
@@ -94,7 +114,7 @@ jupyter lab
 # or
 jupyter notebook
 ```
-Navigate to either `DataScience-Task1-Iris` or `Task2_Unemployment_Analysis` and execute cells sequentially.
+Navigate to `DataScience-Task1-Iris`, `Task2_Unemployment_Analysis`, or `Task3_Car_Price_Prediction` and execute cells sequentially.
 
 ---
 
